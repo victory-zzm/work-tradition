@@ -1,0 +1,1010 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>凉山数字人社村级社保自助服务终端平台</title>
+	<link rel="stylesheet" href="css/newstyle.css">
+	<!-- 引入样式 -->
+	<link rel="stylesheet" href="/css/element.css">
+	
+	
+</head>
+<body>
+<div class="container">
+	<div class="time1" id="time1" style="font-size: 9px;font-family: 'Microsoft YaHei UI';"></div>
+  <div class="time" id="time"></div>
+
+  <div class="top-box" >
+    <div class="top-content">
+      <p>累计待遇办理量</p>
+      <span id="midTotalIssue">22890人次</span>
+    </div>
+    <img src="./images/短线.png" alt="">
+    <div class="top-content">
+      <p>累计养老参保办理量</p>
+      <span id="midTotalOld">51890人次</span>
+    </div>
+    <img src="./images/短线.png" alt="">
+    <div class="top-content">
+      <p>累计社保卡密码修改办理量</p>
+      <span id="midChangePwd">28750人次</span>
+    </div>
+    <img src="./images/短线.png" alt="">
+    <div class="top-content">
+      <p>累计社保卡挂失办理量</p>
+      <span id="midLoss">15100人次</span>
+    </div>
+    <img src="./images/短线.png" alt="">
+    <div class="top-content">
+      <p>会议次数统计（AI门岗）</p>
+      <span id="meetingNum">2750人次</span>
+    </div>
+    <img src="./images/短线.png" alt="">
+    <div class="top-content">
+      <p>累计次数统计（AI门岗）</p>
+      <span id="allNum">15000人次</span>
+    </div>
+  </div>
+
+  <div class="main">
+    <!-- 左边的盒子 -->
+    <div class="left">
+      <div class="section_netOrg">
+        <div class="tit">网点视频监控</div>
+        <div class="text-content">
+          <div class="content">
+						<!-- <div id="app" >
+							<el-row>
+									<el-button class="button-box">默认按钮</el-button>
+									<el-button class="button-box" type="primary">主要按钮</el-button>
+									<el-button class="button-box" type="success">成功按钮</el-button>
+									<el-button class="button-box" type="info">信息按钮</el-button>
+									<el-button class="button-box" type="warning">警告按钮</el-button>
+									<el-button class="button-box" type="danger">危险按钮</el-button>
+							</el-row>
+							<el-input v-model="input" placeholder="请输入内容"></el-input>
+						</div> -->
+            <div class="text-box">
+              <p>所属地区：</p>
+              <span>西昌县</span>
+            </div>
+            <div class="text-box">
+              <p>网点名称：</p>
+              <span>西昌县人社局网点</span>
+            </div>
+          </div>
+          <div class="content">
+            <div class="text-box">
+              <p>累计用户登录量：</p>
+              <span id="totalLogin">12341</span>
+            </div>
+            <div class="text-box">
+              <p>累计业务办理量：</p>
+              <span id="totalIssue">254124</span>
+            </div>
+          </div>
+        </div>
+        <!-- <div class="video-box"></div> -->
+				<div class="video-box">
+					<video id = "video_tag" width="100%" height="100%"  loop autoplay controls muted>
+					
+					</video>
+				</div>
+      </div>
+
+      <div class="section_business">
+        <div class="echarts-box">
+          <div class="tit">
+						近七日签到渠道占比（AI门岗）
+						<div class="chart2" id="handleNumqudao" style="width: 11vw;height: 25vh;"></div>
+					</div>
+					
+          <img src="./images/短线.png" alt="">
+          <div class="tit">
+						近七日业务办理占比
+						<div class="chart3" id="handleNumyewu" style="width: 14vw;height: 25vh;"></div>
+					</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- 中间区域 -->
+    <div class="mid">
+      <div class="map">
+        <div class="item">
+          所有设备方位人数统计 <span class="span1">1228750 </span> <span class="span2">人次</span>
+        </div>
+        <div class="map-box" id="provinceMap" style="width: 100%;height: 58vh; transform: scaleY(0.80);">
+
+        </div>
+      </div>
+      <div class="top-wrap">
+        <!-- <div class="tit">今日业务办理信息展示</div> -->
+        <div class="business">
+          <div class="thead">
+            <div>姓名</div>
+            <div>所属区域</div>
+            <div>办理时间</div>
+            <div>办理业务</div>
+            <div>设备名称</div>
+            <div>设备编号</div>
+          </div>
+          <div class="list" id="loginList">
+            <div class="inner-list" id="innerBusiness">
+              <ul class="curBusiness" id="todayBusiness">
+                <li>
+                  <div>王某某1</div>
+                  <div>南宁市-江南区</div>
+                  <div>-----</div>
+                  <div>社保卡挂失了吗啊啊</div>
+                </li>
+                <li>
+                  <div>王某某1</div>
+                  <div>南宁市-江南区</div>
+                  <div>-----</div>
+                  <div>社保卡挂失了吗啊啊</div>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div class="right">
+      <div class="echart-right1">
+        <div class="tit">今日业务办理量区域榜单（单位/人次）</div>
+        <div class="chart-box1" id="handleNum11">
+          <div class="outer">
+            <div class="data-list list1" id="dataList">
+            </div>
+            <div class="data-list list2">
+              <div class="other-data" id="otherData"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="echart-right2">
+        <div class="tit">近七日养老待遇认证统计</div>
+        <div class="chart-box2" id="dyAuth" style="width: 100%;height: 22vh;"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<script src="js/sichuan_liangshan.js"></script>
+<!-- 引入组件库 -->
+<script src="/js/vue.min.js"></script>
+<script src="/js/element.js"></script>
+<script type="text/javascript">
+	const vm = new Vue({ // 配置对象 options
+			// 配置选项(option)
+			el: '#app',  // element: 指定用vue来管理页面中的哪个标签区域
+			data: {
+					msg: ''
+			}
+	})
+</script>
+
+
+</body>
+<script>
+  //获取当前时间
+	var date = new Date();
+	var month = date.getMonth()+1
+	var time = date.getFullYear()+'年'+ month +'月'+date.getDate()+'日';
+	var weekday = '星期'+['日','一','二','三','四','五','六'][date.getDay()];
+	document.getElementById('time').innerHTML = time +' '+ weekday;
+  //计算各种字号
+	var ht = document.querySelector('html');
+	var styleObject =  ht.currentStyle != null ? ht.currentStyle : getComputedStyle(ht, false);
+	var lxFs = parseInt(parseInt(styleObject.fontSize)*0.12);
+	// var ttFs = parseInt(parseInt(styleObject.fontSize)*0.14);
+	var otherFs = parseInt(parseInt(styleObject.fontSize)*0.16);
+	// let meetingNum = 0; // 会议次数
+	// let allNum = 0; // 累计AI统计次数
+
+	window.onload = function(){
+		//网点视屏监控实时时间
+		// setInterval("time1()",1000);
+		//设置监控视屏来源
+		setVideoSource();
+		//showMap();
+		let count = 0
+		let len = 9 - 4
+		setInterval(function(){
+			if(count < len-1){
+				count = count + 1
+				$('#innerBusiness').animate({'bottom':-count*5+'vh'}, 1000)
+			}else{
+				$('#innerBusiness').animate({'bottom':-count*5+'vh'}, 1000, function(){
+					count = 0
+					$('#innerBusiness').css('bottom',0)
+				})
+			}
+		}, 3000)
+
+	}
+
+
+	// 顶部栏目数据获取
+	$.ajax({
+		url: '/AdmissionService/admisinters/terminal/getNum',
+		type: 'get',
+		dataType: 'json',
+		success: function(res){
+			if(res.code == '1'){
+				return
+			}
+			// console.log('顶部数据')
+			// console.log(res)
+			document.getElementById('meetingNum').innerHTML = res.data.meetingNum + '人次'
+			document.getElementById('allNum').innerHTML = res.data.accessNum + '人次'
+		}
+	})
+
+	//顶部统计数据
+	$.ajax({
+		//url: '/dsmanager/analysis/bigScreen/getDeviceAndUserCount',
+		url: '/dsmanager/analysis/bigScreen/getDeviceAndUserCount',
+		type: 'get',
+		dataType: 'json',
+		success: function(res){
+			//累计待遇认证办理量
+			document.getElementById('midTotalIssue').innerHTML = res.data.TREATMENTCOUNT + '人次'
+			document.getElementById('midChangePwd').innerHTML = res.data.CHANGEPASSWORDCOUNT + '人次'
+			document.getElementById('midTotalOld').innerHTML = res.data.ACTIVECOUNT + '人次'
+			document.getElementById('midLoss').innerHTML = res.data.LOSSCOUNT + '人次'
+			// document.getElementById('MIaddTody').innerHTML = '日新增'+res.data.TODAYTREATMENTCOUNT
+			// document.getElementById('MCaddTody').innerHTML = '日新增'+res.data.TODAYCHANGEPASSWORDCOUNT
+			// document.getElementById('MOaddTody').innerHTML = '日新增'+res.data.TODAYACTIVECOUNT
+			// document.getElementById('MLaddTody').innerHTML = '日新增'+res.data.TODAYLOSSCOUNT
+		}
+	})
+
+	//网点视屏监控
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getVideoCount',
+		type: 'get',
+		dataType: 'json',
+		success: function(res){
+			if(res.code = '1'){
+				// console.log(res);
+				return;
+			}
+			console.log('视频监控');
+			console.log(res);
+			document.getElementById('totalLogin').innerHTML = res.data.LOGINCOUNT+"人次"
+			document.getElementById('totalIssue').innerHTML = res.data.BUSINESSCOUNT+"人次"
+		}
+	})
+
+	//设置监控视屏来源
+	function setVideoSource() {
+		const urlhead = 'http://'
+		var host = window.location.host;
+		//var host = '192.168.66.19:7768'
+		const url = '/dsmanager/analysis/bigScreen/downloadLatest'
+		//设置视屏来源地址！
+		let html = '';
+		html+='<source src=\"' + urlhead+host+url + '\" type=\"video/mp4\">';
+		html+='<source src=\"' + urlhead+host+url + '\" type=\"video/ogg\">';
+		html+='<source src=\"' + urlhead+host+url + '\" type=\"video/webm\">';
+		html+='<object data = \"' + urlhead+host+url + '\" width=\"185px\" height=\"185px\">';
+		html+='<embed width = \"185px\" height = \"185px\" src = \"movie.swf\"/>';
+		html+='</object>';
+		document.getElementById('video_tag').innerHTML = html
+	}
+
+	//近七日业务办理占比
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getServiceCountByType',
+		type: 'post',
+		dataType: 'json',
+		success: function(res){
+			console.log(res.data)
+
+			let data = res.data
+			let ldata = []
+			let sdata = []
+			data.forEach(function(item, index){
+				ldata.push(item.type)
+				sdata.push({name: item.type, value: item.count})
+			})
+			paintRatio(ldata, sdata)
+			// paintRatio1(ldata, sdata)
+		}
+	})
+	function paintRatio(lData,sData){
+		const chart3 = echarts.init(document.getElementById('handleNumyewu'))
+		chart3.setOption({
+			tooltip: {
+				position: 'bottom',
+				backgroundColor : 'rgba(17, 40, 120, 0.7)',
+				textStyle : {
+					fontSize: '14px',
+					color: '#EBB716',
+					decoration: 'none',
+				},
+				trigger: 'item',
+				// formatter: '{a} <br/>{b}: {c} ({d}%)'
+				formatter: '{b} <br/>办理量：{c}人次 <br/>占比：{d}%'
+			},
+			color: ['#1773FC','#10CFA4','#F8BD00','#FF0101','#E968A1','#6549F5','#00B7ED','#D0A970'],
+			legend: { // 右边显示列表
+				orient: 'vertical',
+				bottom: '15%',
+				right: '5%',
+				icon: 'circle',
+				itemWidth: 1,
+				itemHeight: 1,
+				data: lData,
+				textStyle:{
+					fontSize: '16px',
+					color:'#8FA6C6',
+				}
+			},
+			series: [
+				{
+					name: '当前访问',
+					type: 'pie',
+					// radius: '65%', // 圆形的大小设置
+					radius: ['25%', '45%'], // 圆形的大小设置
+					center: ['28%', '52%'], // 圆形的位置
+					avoidLabelOverlap: false,
+					label: {
+						show: false,
+						position: '20%'
+					},
+					emphasis: { // 内容区域
+						label: {
+							show: true,
+							normal:{
+									show:true,
+									position:'inner', //标签的位置
+									textStyle : {
+											fontWeight : 300 ,
+											fontSize : 14    //文字的字体大小
+									},
+									formatter:'{d}%'
+							}
+						}
+					},
+					labelLine: {
+						show: false
+					},
+					data: sData
+				}
+			]
+		})
+		//设置定时器，自动显示提示
+		let timer = null;
+		let count = 1;
+		let dataLength = sData.length;
+		let time = 4000;
+		timeFunc(chart3, timer, count, dataLength, time)
+	}
+
+
+	// 近七日签到渠道占比
+	$.ajax({
+		url: '/AdmissionService/admisinters/terminal/getChannelOfWeek',
+		type: 'get',
+		dataType: 'json',
+		success: function(res){
+			// console.log('近七日签到')
+			// console.log(res);
+			let data = res.data
+			let ldata = []
+			let sdata = []
+			data.forEach(function(item, index){
+				let num = parseInt(item.type)
+				switch(num){
+					case 1: 
+						ldata.push("身份证");
+						sdata.push({name: "身份证", value: item.num})
+						break;
+					case 2:
+						ldata.push("社保卡");
+						sdata.push({name: "社保卡", value: item.num})
+						break;
+					case 3:
+						ldata.push("电子社保卡");
+						sdata.push({name: "电子社保卡", value: item.num})
+						break;
+					case 4:
+						ldata.push("人脸识别");
+						sdata.push({name: "人脸识别", value: item.num})
+						break;
+					default:;
+				}
+			})
+			paintRatio1(ldata, sdata)
+		}
+	})
+	function paintRatio1(lData,sData){
+		const chart2 = echarts.init(document.getElementById('handleNumqudao'))
+		chart2.setOption({
+			tooltip: {
+				position: 'bottom',
+				backgroundColor : 'rgba(17, 40, 120, 0.7)',
+				textStyle : {
+					fontSize: '14px',
+					color: '#EBB716',
+					decoration: 'none',
+				},
+				trigger: 'item',
+				// formatter: '{a} <br/>{b}: {c} ({d}%)'
+				formatter: '{b} <br/>办理量：{c}人次 <br/>占比：{d}%'
+			},
+			color: ['#1773FC','#10CFA4','#F8BD00','#FF0101','#E968A1','#6549F5','#00B7ED','#D0A970'],
+			legend: { // 右边显示列表
+				orient: 'vertical',
+				bottom: '15%',
+				right: '-10%',
+				icon: 'circle',
+				itemWidth: 1,
+				itemHeight: 1,
+				data: lData,
+				textStyle:{
+					fontSize: '14px',
+					color:'#8FA6C6',
+				}
+			},
+			series: [
+				{
+					name: '当前访问',
+					type: 'pie',
+					// radius: '65%', // 圆形的大小设置
+					radius: ['25%', '45%'], // 圆形的大小设置
+					center: ['28%', '52%'], // 圆形的位置
+					avoidLabelOverlap: false,
+					label: {
+						show: false,
+						position: '20%'
+					},
+					emphasis: { // 内容区域
+						label: {
+							show: true,
+							normal:{
+									show:true,
+									position:'inner', //标签的位置
+									textStyle : {
+											fontWeight : 300 ,
+											fontSize : 16    //文字的字体大小
+									},
+									formatter:'{d}%'
+							}
+						}
+					},
+					labelLine: {
+						show: false
+					},
+					data: sData
+				}
+			]
+		})
+		//设置定时器，自动显示提示
+		let timer = null;
+		let count = 1;
+		let dataLength = sData.length;
+		let time = 4000;
+		timeFunc(chart2, timer, count, dataLength, time)
+	}
+
+
+  //今日业务办理信息展示
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getTodayBusinessList',
+		type: 'get',
+		dataType: 'json',
+		success: function(res){
+			console.log('今日信息展示：如')
+			if(res.code == '0') return;
+      console.log(res);
+			let html = '';
+			for(let i = 0; i < res.data.length; i++){
+				html += '<li>';
+				html += '<div>'+res.data[i].name+'</div>';
+				html += '<div>'+res.data[i].areaName+'</div>';
+				html += '<div>'+res.data[i].createTime.split(' ')[1]+'</div>';
+				html += '<div>'+res.data[i].type+'</div>';
+				html += '</li>';
+			}
+			document.getElementById('todayBusiness').innerHTML = html
+			$('.curBusiness').clone().appendTo('#innerBusiness')
+			let count = 0
+			let len = res.data.length - 4
+			setInterval(function(){
+				if(count < len-1){
+					count = count + 1
+					$('#innerBusiness').animate({'bottom':-count*5+'vh'}, 1000)
+				}else{
+					$('#innerBusiness').animate({'bottom':-count*5+'vh'}, 1000, function(){
+						count = 0
+						$('#innerBusiness').css('bottom',0)
+					})
+				}
+			}, 3000)
+		}
+	})
+
+
+  /* 今日业务办理量区域榜单 */
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getCityDeviceServiceCount',
+		type: 'post',
+		dataType: 'json',
+		success: function(res){
+			console.log('区域榜单');
+			console.log(res);
+			let data = res.data
+			let numArr = []
+			data.forEach(function(item,index){
+				numArr.push(parseInt(item.count))
+			})
+			let max = Math.max.apply(null, numArr)
+			//前三名数据
+			document.getElementById('dataList').innerHTML = htmlFunc(data, 0, 3, max)
+			//其他数据
+			document.getElementById('otherData').innerHTML = htmlFunc(data, 3, 14, max) + htmlFunc(data, 3, 14, max)
+			//设置滚动
+			let count = 0
+			let len = 11
+			setInterval(function(){
+				if(count < len){
+					count = count + 1
+					$('#otherData').animate({'top':count*-5.4+'vh'}, 1000)
+				}else{
+					$('#otherData').animate({'top':count*-5.4+'vh'}, 1000, function(){
+						count = 0
+						$('#otherData').css('top',0)
+					})
+				}
+			}, 2000)
+		}
+	})
+	function htmlFunc(data,start,len,max){
+		let html = ''
+		for(let i = start; i < len; i++){
+			let num = i + 1;
+			html += '<div class="item">'
+			html += '<div class="name"><span>'+ num + '</span>'+ data[i].areaName +'</div>' 
+			html += '<div class="val">'
+			if(parseInt(data[i].count) == 0){
+				html += '<div class="inner" style="width:0px"></div>'
+			}else{
+				html += '<div class="inner" style="width:'+parseInt(data[i].count)/max*100+'%"></div>'
+			}
+			html += '</div>'
+      html += '<div class="num">'+data[i].count+'</div>'
+			html += '</div>'
+		}
+		return html
+	}
+
+
+  /* 近七日养老待遇认证统计 */
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getYLCertificationCount',
+		type: 'post',
+		dataType: 'json',
+		success: function(res){
+			console.log(res);
+			let times = res.data.times
+			let login_x = []
+			times.forEach(function(item,index){
+				login_x.push(item.substring(5,10))
+			})
+			// let login_y = [20,30,12,34,32,33,50]
+			let login_y = res.data.yLServiceCount
+			paintTreat(login_x, login_y)
+		}
+	})
+	function paintTreat(xData, yData){
+		const chart5 = echarts.init(document.getElementById('dyAuth'))
+		chart5.setOption({
+			tooltip: {
+				position: 'top',
+				backgroundColor : 'rgba(17, 40, 120, 0.7)',
+				textStyle : {
+					fontSize: '14px',
+					color: '#EBB716',
+					decoration: 'none',
+				},
+				formatter: function(params, ticket, callback){
+					let txt = '日期：'+ new Date().getFullYear() + '-' + params.name + '<br/>' + params.seriesName + '：' + params.data + '人次'
+					return txt;
+				}
+			},
+			title: {
+				text:'单位：人次',
+				show: true,
+				x:'3%',
+				y:'5%',
+				textStyle: {
+					fontWeight: "normal",
+					color: "#D6E1F5",
+					fontSize: '14px'
+				}
+			},
+			grid: {
+				top: '25%',
+				left: '5%',
+				bottom: '0',
+				right: '5%',
+				containLabel: true
+			},
+			xAxis: {
+				data: xData,
+				axisLine: {
+					lineStyle: {
+						type: 'solid',
+						color: '#153062', // 左边线的颜色
+						width: '1'// 坐标线的宽度
+					}
+				},
+				axisLabel: {
+					interval: 0,
+					textStyle: {
+						color: '#D6E1F5', // 坐标值的具体颜色
+						fontSize: lxFs
+					}
+				},
+				axisTick: {
+					show: false// 不显示坐标轴刻度线
+				}
+			},
+			yAxis: {
+				axisLine: {
+					show: false
+				},
+				axisLabel: {
+					interval: 0,
+					textStyle: {
+						color: '#D6E1F5', // 坐标值的具体颜色
+						fontSize: lxFs
+					}
+				},
+				splitLine: {
+					show: true,
+					lineStyle: {
+						color: '#153062',
+						width: 1,
+						type: 'solid'
+					}
+				},
+				axisTick: {
+					show: false// 不显示坐标轴刻度线
+				},
+				offset: 5
+			},
+			series: [
+				{
+					name: '待遇认证',
+					type: 'bar',
+					barWidth: '12',
+					barMaxWidth: '12',
+					barMinHeight: 1,
+					data: yData,
+          itemStyle: { // 柱形条颜色渐变
+            barBorderRadius: [4, 4, 4, 4],
+            color: {
+              x: 0,
+              y: 1,
+              x2: 0,
+              y2: 0,
+              type: "linear",
+              colorStops: [
+                {
+                  offset: 0,
+                  color: '#06c1c7',
+                },
+                {
+                  offset: 1,
+                  color: '#00859d',
+                },
+              ],
+            },
+          },
+				}
+			]
+		})
+		//设置定时器，自动显示提示
+		let timer = null;
+		let count = 1;
+		let dataLength = xData.length;
+		let time = 4000;
+		timeFunc(chart5, timer, count, dataLength, time)
+	}
+	
+
+  //中间部分：四川凉山地图
+	var geoCoordMap = {
+		'西昌市':[102.258758,27.885786],
+		'木里藏族自治县':[101.280184,27.926859],
+		'盐源县':[101.508909,27.423415],
+		'德昌县':[102.178845,27.403827],
+		'会理县':[102.249548,26.658702],
+		'会东县':[102.578985,26.630713],
+		'宁南县':[102.757374,27.065205],
+		'普格县':[102.541082,27.376828],
+		'布拖县':[102.808801,27.709062],
+		'金阳县':[103.248704,27.695916],
+		'昭觉县':[102.843991,28.010554],
+		'喜德县':[102.412342,28.305486],
+		'冕宁县':[102.170046,28.550844],
+		'越西县':[102.508875,28.639632],
+		'甘洛县':[102.775924,28.977094],
+		'美姑县':[103.132007,28.327946],
+		'雷波县':[103.571584,28.262946]
+	}
+	function convertData(data) {
+		// console.log(JSON.stringify(data))
+		var res = [];
+		for (var i = 0; i < data.length; i++) {
+			var geoCoord = geoCoordMap[data[i].name];
+			if (geoCoord) {
+				res.push({
+					name: data[i].name,
+					value: geoCoord.concat(data[i].value),
+					value1: data[i].value1,
+					value2: data[i].value2,
+          dayNum: data[i].dayNum,
+          deshengNum: data[i].deshengNum,
+          aiNum: data[i].aiNum,
+          endNum: data[i].endNum,
+          photoNum: data[i].photoNum
+				});
+			}
+		}
+		return res;
+	};
+
+  //地图各模块数据
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getMapData',
+		type: 'post',
+		dataType: 'json',
+		success: function(res){
+			// console.log(res); //  地图数据不完整
+			let pdata = []
+			let totalArr = []
+			let data = res.data
+			data.forEach(function(item,index){
+				totalArr.push(parseInt(item.deviceTotal))
+				pdata.push({
+					name: item.areaName,
+					// value: [item.deviceTotal, item.deviceOpenTotal, item.todayLoginUserTotal]
+					value: item.deviceTotal,
+					value1: item.deviceOpenTotal,
+					value2: item.todayLoginUserTotal,
+          dayNum: 111,
+          deshengNum: 222,
+          aiNum: 333,
+          endNum: 444,
+          photoNum: 555
+				})
+			})
+			let maxNum = Math.max.apply(null, totalArr)
+			paintMap(pdata, maxNum)
+		}
+	})
+	function paintMap(pdata, maxNum){
+		const chart = echarts.init(document.getElementById('provinceMap'));
+		let option0 = {
+			textStyle: {
+				fontSize:15,
+				fontWeight: 'bold'
+			},
+
+			tooltip : {
+				trigger: 'item',
+				position: 'top',
+				backgroundColor : 'rgba(17, 40, 120, 0.7)',
+				formatter: function(params){
+					return '<div style="padding: 10px;">'+
+              '<div style="color:#fff;font-weight: bolder; font-size: 17px; height: 28px;">'+params.data.name+'</div>'+
+							'<div style="font-size: 14px; color:#388bd4; height: 28px;">终端数量：<span style="color: #b3b8cf">'+params.data.value[0]+'台</span></div>'+
+							'<div style="font-size: 14px; color:#388bd4; height: 28px;">今日用户登录量：<span style="color: #b3b8cf">'+params.data.dayNum+'台</span></div>'+
+							'<div style="font-size: 14px; color:#388bd4; height: 28px;">德生宝数量：<span style="color: #b3b8cf">'+params.data.deshengNum+'台</span></div>'+
+							'<div style="font-size: 14px; color:#388bd4; height: 28px;">AI门岗数量：<span style="color: #b3b8cf">'+params.data.aiNum+'台</span></div>'+
+							'<div style="font-size: 14px; color:#388bd4; height: 28px;">大终端数量：<span style="color: #b3b8cf">'+params.data.endNum+'台</span></div>'+
+							'<div style="font-size: 14px; color:#388bd4; height: 28px;">自助拍照一体机数量：<span style="color: #b3b8cf">'+params.data.photoNum+'台</span></div>'
+              +'</div>'
+            }
+			},
+			dataRange: {
+				min: 0,
+				max: maxNum,
+				x: '90%',
+				y: 'bottom',
+				itemWidth: 15,
+				itemHeight: 80,
+				color:['#3569CE','#02DCF7'],
+				text:['高','低'],
+				calculable: false, //显示滑块
+				splitNumber:0,
+				textStyle: {
+					fontWeight: "normal",
+					color: "#8D96B5",
+					fontSize: otherFs
+				},
+				seriesIndex: 0 // 仅使第一个series生效
+			},
+			geo: {
+				// map: '广西',
+				map: '凉山彝族自治州',
+				roam: false, //鼠标缩放地图
+				label: {
+					normal:{
+						show: false,
+						position: 'top',
+						color: '#fff',
+					},
+					emphasis: {
+						show: false,
+						color: '#fff'
+					},
+				},
+				itemStyle: {
+					normal: {
+						areaColor: '#3268CD',
+						borderColor: '#08117A'
+					},
+					emphasis: {
+						areaColor: '#FFC300',
+					},
+				},
+				zoom: 1.2,
+			},
+			series: [
+				{
+					// map: '广西',
+					map: '凉山彝族自治州',
+					type: 'map',
+					roam: false, //缩放
+					data: convertData(pdata),
+					label: {
+						show: false,
+						normal:{
+							show: false,
+							position: 'top',
+							color: '#fff',
+						},
+						emphasis: {
+							show: false,
+							color: '#fff'
+						},
+					},
+					itemStyle: {
+						normal: {
+							areaColor: '#3268CD',
+							borderColor: '#08117A'
+						},
+						emphasis: {
+							//areaColor: '#FFC300',
+							areaColor: '#8A2BE2',
+						},
+
+					},
+					zoom: 1.2,
+					zlevel: 10
+				},
+				{
+					name: '分布情况',
+					type: 'scatter',
+					coordinateSystem: 'geo',
+					data: convertData(pdata),
+					symbol:'circle',
+					symbolSize: 6,
+					hoverAnimation: true,
+					label: {
+						normal: {
+							formatter: '{b}',
+							color: '#fff',
+							position: 'bottom',
+							show: true
+						},
+						emphasis: {
+							formatter: '{b}',
+							color: '#fff',
+							position: 'bottom',
+							show: true
+						},
+					},
+					itemStyle: {
+						color: '#fff',
+					},
+					zlevel: 20
+				}
+			],
+			animation: true, // 关闭动画后scatter点悬浮样式会失效
+			selectedMode: 'single',
+		}
+		chart.setOption(option0);
+		//设置定时器，自动显示地图上提示
+		let timer = null;
+		let count = 1;
+		let dataLength = 14;
+		let time = 5000;
+		timeFunc(chart, timer, count, dataLength, time)
+	}
+
+  //设置定时器，让提示自动显示
+	function timeFunc(chart, timer, count, dataLength, time){
+		window.addEventListener('resize', function(){
+			chart.resize()
+		})
+		//默认进入页面立即显示第一个提示
+		chart.dispatchAction({
+			type: 'highlight',
+			seriesIndex: 0,
+			dataIndex: 0
+		});
+		chart.dispatchAction({
+			type: 'showTip',
+			seriesIndex: 0,
+			dataIndex: 0
+		});
+		timer = setInterval(function(){
+			chart.dispatchAction({
+				type: 'downplay',
+				seriesIndex: 0,
+			});
+			chart.dispatchAction({
+				type: 'highlight',
+				seriesIndex: 0,
+				dataIndex: (count) % dataLength
+			});
+			chart.dispatchAction({
+				type: 'showTip',
+				seriesIndex: 0,
+				dataIndex: (count) % dataLength
+			});
+			count++;
+		}, time)
+		chart.on('mouseover', function(params) {
+			clearInterval(timer);
+			chart.dispatchAction({
+				type: 'downplay',
+				seriesIndex: 0
+			});
+			chart.dispatchAction({
+				type: 'highlight',
+				seriesIndex: 0,
+				dataIndex: params.dataIndex
+			});
+			chart.dispatchAction({
+				type: 'showTip',
+				seriesIndex: 0,
+				dataIndex: params.dataIndex,
+			});
+		});
+		chart.on('mouseout', function(params) {
+			timer && clearInterval(timer);
+			timer = setInterval(function() {
+				chart.dispatchAction({
+					type: 'downplay',
+					seriesIndex: 0,
+				});
+				chart.dispatchAction({
+					type: 'highlight',
+					seriesIndex: 0,
+					dataIndex: (count) % dataLength
+				});
+				chart.dispatchAction({
+					type: 'showTip',
+					seriesIndex: 0,
+					dataIndex: (count) % dataLength
+				});
+				count++;
+			}, time);
+		});
+	}
+</script>
+</html>

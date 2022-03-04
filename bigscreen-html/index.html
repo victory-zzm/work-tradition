@@ -1,0 +1,1177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>凉山数字人社村级社保自助服务终端平台</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+	<div class="time1" id="time1" style="font-size: 9px;font-family: "Microsoft YaHei UI";"></div>
+<div class="time" id="time"></div>
+<!-- <div class="logo"><img src="images/logo.png"></div> -->
+<div class="main">
+	<div class="left">
+		<!--<div class="section">
+            <div class="tit">当前登录用户</div>
+            <div class="login">
+                <div class="thead">
+                    <div>姓名</div>
+                    <div>所属区域</div>
+                    <div>登录时间</div>
+                </div>
+                <div class="list" id="loginList">
+                    <div class="inner-list" id="inner">
+                        <ul class="curlogin" id="currentLogin">
+                             &lt;!&ndash;<li>
+                                <div>王某某</div>
+                                <div>南宁市-江南区</div>
+                                <div>2020-06-03</div>
+                            </li>&ndash;&gt;
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>-->
+		<div class="section_netOrg">
+			<div class="tit">网点视频监控</div>
+			<div class="login">
+				<div class = "message">
+					<ul class="video_ul" style="width: 50%">
+						<li>
+							<span>所属地区：</span>
+							<div style="color: #92ffe4" class = "thisArea">
+								<span id="area">会理县</span>
+							</div>
+						</li>
+						<li>
+							<span>网点名称：</span>
+							<div style="color: #92ffe4" class = "thisArea">
+								<span id="netOrg">城北街道网点</span>
+							</div>
+						</li>
+					</ul>
+					<ul class="video_ul" style="width: 50%">
+						<li>
+							<span>累计用户登录量：</span><span style="color: #92ffe4" id="totalLogin">2222222人次</span><br>
+						</li>
+						<li>
+							<span>累计业务办理量：</span><span style="color: #92ffe4" id="totalIssue">8888888人次</span>
+						</li>
+					</ul>
+				</div>
+				<div class="video">
+					<video id = "video_tag" width="185px" height="185px"  loop autoplay controls muted>
+						<!--测试：192.168.66.19:7768-->
+						<!--								<source src="video/funny.mp4" type="video/mp4">-->
+						<!--								<source src="http://172.16.23.23:7768/dsmanager/analysis/bigScreen/downloadLatest" type="video/mp4">-->
+						<!--								<source src="http://172.16.23.23:7768/dsmanager/analysis/bigScreen/downloadLatest" type="video/ogg">-->
+						<!--								<source src="http://172.16.23.23:7768/dsmanager/analysis/bigScreen/downloadLatest" type="video/webm">-->
+						<!--								<object data = "http://172.16.23.23:7768/dsmanager/analysis/bigScreen/downloadLatest" width="185px" height="185px">-->
+						<!--									<embed width = "185px" height = "185px" src = "movie.swf"/>-->
+						<!--								</object>-->
+					</video>
+				</div>
+			</div>
+		</div>
+
+
+		<!--<div class="section">
+            <div class="tit">近七日用户登录量</div>
+            <div class="chart1" id="loginNum" style="width: 100%;height: 22vh;"></div>
+        </div>-->
+
+		<div class="section_business">
+			<div class="tit">今日业务办理信息展示</div>
+			<div class="business">
+				<div class="thead">
+					<div>姓名</div>
+					<div>所属区域</div>
+					<div>办理时间</div>
+					<div>办理业务</div>
+				</div>
+				<div class="list" id="loginList">
+					<div class="inner-list" id="innerBusiness">
+						<ul class="curBusiness" id="todayBusiness">
+							<li>
+								<div>王某某1</div>
+								<div>南宁市-江南区</div>
+								<div>-----</div>
+								<div>社保卡挂失了吗啊啊</div>
+							</li>
+							<li>
+								<div>王某某1</div>
+								<div>南宁市-江南区</div>
+								<div>-----</div>
+								<div>社保卡挂失了吗啊啊</div>
+							</li>
+							<li>
+								<div>王某某1</div>
+								<div>南宁市-江南区</div>
+								<div>-----</div>
+								<div>社保卡挂失了吗啊啊</div>
+							</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<!--<div class="section">
+            <div class="tit">近七日设备开机数量统计</div>
+            <div class="chart2" id="openNum" style="width: 100%;height: 22vh;"></div>
+        </div>-->
+	</div>
+	<div class="mid">
+		<div class="top-wrap">
+			<div class="left">
+				<!--<div class="item">
+                    <div class="name">累计用户数量</div>
+                    <div class="number"><span id="midTotal">0</span>人</div>
+                </div>
+                <div class="item">
+                    <div class="name">今日用户登录量</div>
+                    <div class="number"><span id="midLogin">0</span>人</div>
+                </div>-->
+				<div class="item">
+					<div class="name">累计待遇认证办理量</div>
+					<div class="number"><span id="midTotalIssue">8033</span>人次<span id="MIaddTody">日新增1000</span></div>
+				</div>
+				<div class="item">
+					<div class="name">累计社保卡密码修改办理量</div>
+					<div class="number"><span id="midChangePwd">0</span>人次<span id="MCaddTody">日新增0</span></div>
+				</div>
+			</div>
+			<div class="right">
+				<!--<div class="item">
+                    <div class="name">累计待遇认证人数</div>
+                    <div class="number"><span id="midVerify">0</span>人</div>
+                </div>
+                <div class="item">
+                    <div class="name">今日设备开机数量</div>
+                    <div class="number"><span id="midOpen">0</span>台</div>
+                </div>-->
+				<div class="item">
+					<div class="name">累计养老参保申请办理量</div>
+					<div class="number"><span id="midTotalOld">803311</span>人次<span id="MOaddTody">日新增1000</span></div>
+				</div>
+				<div class="item">
+					<div class="name">累计社保卡挂失办理量</div>
+					<div class="number"><span id="midLoss">0</span>人次<span id="MLaddTody">日新增0</span></div>
+				</div>
+			</div>
+		</div>
+		<div class="map" id="provinceMap" style="width: 100%;height: 58vh; transform: scaleY(0.85);"></div>
+	</div>
+	<div class="right">
+		<div class="section">
+			<div class="tit">近七日业务办理占比</div>
+			<div class="chart3" id="handleNum" style="width: 100%;height: 23vh;"></div>
+		</div>
+		<div class="section">
+			<div class="tit">今日业务办理量区域榜单</div>
+			<div class="outer">
+				<div class="data-list list1" id="dataList">
+					<!--<div class="item">
+                       <div class="name">1.南宁市</div>
+                       <div class="val">
+                           <div class="inner"></div>
+                       </div>
+                       <div class="num">888</div>
+                   </div>-->
+				</div>
+				<div class="data-list list2">
+					<div class="other-data" id="otherData"></div>
+				</div>
+			</div>
+		</div>
+		<div class="section">
+			<div class="tit">近七日养老待遇认证统计</div>
+			<div class="chart5" id="dyAuth" style="width: 100%;height: 22vh;"></div>
+		</div>
+	</div>
+</div>
+</div>
+<script src="js/jquery-1.11.1.min.js"></script>
+<script src="js/echarts.min.js"></script>
+<!--	<script src="js/guangxi.js"></script>-->
+<!--	<script src="../../static/js/echarts.min.js"></script>-->
+<script src="js/sichuan_liangshan.js"></script>
+<script>
+	// var clientH = document.documentElement.clientHeight;
+	//获取当前时间
+	var date = new Date();
+	var month = date.getMonth()+1
+	var time = date.getFullYear()+'年'+ month +'月'+date.getDate()+'日';
+	var weekday = '星期'+['日','一','二','三','四','五','六'][date.getDay()];
+	document.getElementById('time').innerHTML = time +' '+ weekday;
+	//计算各种字号
+	var ht = document.querySelector('html');
+	var styleObject =  ht.currentStyle != null ? ht.currentStyle : getComputedStyle(ht, false);
+	var lxFs = parseInt(parseInt(styleObject.fontSize)*0.12);
+	var ttFs = parseInt(parseInt(styleObject.fontSize)*0.14);
+	var otherFs = parseInt(parseInt(styleObject.fontSize)*0.16);
+
+	window.onload = function(){
+		//网点视屏监控实时时间
+		setInterval("time1()",1000);
+		//设置监控视屏来源
+		setVideoSource();
+		//showMap();
+
+		let count = 0
+		let len = 9 - 4
+		setInterval(function(){
+			if(count < len-1){
+				count = count + 1
+				$('#innerBusiness').animate({'bottom':-count*5+'vh'}, 1000)
+			}else{
+				$('#innerBusiness').animate({'bottom':-count*5+'vh'}, 1000, function(){
+					count = 0
+					$('#innerBusiness').css('bottom',0)
+				})
+			}
+		}, 3000)
+
+	}
+
+	//中部地图本地调试
+	function showMap() {
+		let res = {"code":"0","data":[{"areaCode":"450100","areaName":"南宁市","deviceOpenTotal":215,"deviceTotal":1296,"todayLoginUserTotal":276},{"areaCode":"450200","areaName":"柳州市","deviceOpenTotal":109,"deviceTotal":757,"todayLoginUserTotal":83},{"areaCode":"450300","areaName":"桂林市","deviceOpenTotal":266,"deviceTotal":1557,"todayLoginUserTotal":228},{"areaCode":"450400","areaName":"梧州市","deviceOpenTotal":85,"deviceTotal":880,"todayLoginUserTotal":73},{"areaCode":"450500","areaName":"北海市","deviceOpenTotal":139,"deviceTotal":351,"todayLoginUserTotal":185},{"areaCode":"450600","areaName":"防城港市","deviceOpenTotal":46,"deviceTotal":283,"todayLoginUserTotal":40},{"areaCode":"450700","areaName":"钦州市","deviceOpenTotal":221,"deviceTotal":918,"todayLoginUserTotal":211},{"areaCode":"450800","areaName":"贵港市","deviceOpenTotal":277,"deviceTotal":1021,"todayLoginUserTotal":297},{"areaCode":"450900","areaName":"玉林市","deviceOpenTotal":578,"deviceTotal":1360,"todayLoginUserTotal":812},{"areaCode":"451000","areaName":"百色市","deviceOpenTotal":111,"deviceTotal":1561,"todayLoginUserTotal":159},{"areaCode":"451100","areaName":"贺州市","deviceOpenTotal":120,"deviceTotal":716,"todayLoginUserTotal":508},{"areaCode":"451200","areaName":"河池市","deviceOpenTotal":142,"deviceTotal":1325,"todayLoginUserTotal":126},{"areaCode":"451300","areaName":"来宾市","deviceOpenTotal":165,"deviceTotal":613,"todayLoginUserTotal":51},{"areaCode":"451400","areaName":"崇左市","deviceOpenTotal":103,"deviceTotal":741,"todayLoginUserTotal":327}],"msg":"操作成功"};
+		let pdata = []
+		let totalArr = []
+		let data = res.data
+		data.forEach(function(item,index){
+			totalArr.push(parseInt(item.deviceTotal))
+			pdata.push({
+				name: item.areaName,
+				// value: [item.deviceTotal, item.deviceOpenTotal, item.todayLoginUserTotal]
+				value: item.deviceTotal,
+				value1: item.deviceOpenTotal,
+				value2: item.todayLoginUserTotal
+			})
+		})
+		let maxNum = Math.max.apply(null, totalArr)
+		paintMap(pdata, maxNum)
+	}
+
+	//设置监控视屏来源
+	function setVideoSource() {
+		const urlhead = 'http://'
+		var host = window.location.host;
+		//var host = '192.168.66.19:7768'
+		const url = '/dsmanager/analysis/bigScreen/downloadLatest'
+		//设置视屏来源地址！
+		let html = '';
+		html+='<source src=\"' + urlhead+host+url + '\" type=\"video/mp4\">';
+		html+='<source src=\"' + urlhead+host+url + '\" type=\"video/ogg\">';
+		html+='<source src=\"' + urlhead+host+url + '\" type=\"video/webm\">';
+		html+='<object data = \"' + urlhead+host+url + '\" width=\"185px\" height=\"185px\">';
+		html+='<embed width = \"185px\" height = \"185px\" src = \"movie.swf\"/>';
+		html+='</object>';
+		document.getElementById('video_tag').innerHTML = html
+		//let res = {code:"0",data:[{"areaName":"八步区","createTime":"2021-05-31 16:25:50","name":"陈**","type":"社保卡制卡进度查询"},{"areaName":"八步区","createTime":"2021-05-31 16:25:48","name":"黎**","type":"养老信息查询"},{"areaName":"八步区","createTime":"2021-05-31 16:25:41","name":"陈**","type":"社保卡信息查询 "},{"areaName":"福绵区","createTime":"2021-05-31 16:25:40","name":"欧**","type":"养老待遇发放查询"},{"areaName":"福绵区","createTime":"2021-05-31 16:25:39","name":"欧**","type":"养老待遇发放查询"},{"areaName":"八步区","createTime":"2021-05-31 16:25:36","name":"陈**","type":"社保卡信息查询 "},{"areaName":"八步区","createTime":"2021-05-31 16:25:34","name":"陈**","type":"社保卡信息查询 "},{"areaName":"八步区","createTime":"2021-05-31 16:25:33","name":"陈**","type":"社保卡制卡进度查询"},{"areaName":"宜州区","createTime":"2021-05-31 16:25:33","name":"梁**","type":"养老待遇认证"},{"areaName":"福绵区","createTime":"2021-05-31 16:25:32","name":"欧**","type":"养老信息查询"},{"areaName":"八步区","createTime":"2021-05-31 16:25:30","name":"陈**","type":"社保卡信息查询 "},{"areaName":"灌阳县","createTime":"2021-05-31 16:25:21","name":"吴**","type":"养老待遇认证"},{"areaName":"覃塘区","createTime":"2021-05-31 16:24:57","name":"杨**","type":"养老缴费信息查询"},{"areaName":"覃塘区","createTime":"2021-05-31 16:24:57","name":"杨**","type":"养老缴费信息查询"},{"areaName":"巴马瑶族自治县","createTime":"2021-05-31 16:24:51","name":"黄**","type":"社保卡激活"},{"areaName":"巴马瑶族自治县","createTime":"2021-05-31 16:24:51","name":"黄**","type":"社保卡信息查询 "},{"areaName":"昭平县","createTime":"2021-05-31 16:24:50","name":"唐**","type":"养老待遇认证"},{"areaName":"覃塘区","createTime":"2021-05-31 16:24:48","name":"杨**","type":"养老信息查询"},{"areaName":"巴马瑶族自治县","createTime":"2021-05-31 16:24:46","name":"黄**","type":"社保卡信息查询 "},{"areaName":"巴马瑶族自治县","createTime":"2021-05-31 16:24:43","name":"黄**","type":"社保卡信息查询 "}],msg:"操作成功"}
+	}
+
+	//网点视屏监控实时时间
+	function time1(){
+		var vWeek,vWeek_s,vDay;
+		vWeek = ["星期天","星期一","星期二","星期三","星期四","星期五","星期六"];
+		var date =  new Date();
+		year = date.getFullYear();
+		month = date.getMonth() + 1;
+		var month1 = month.toString();
+		if(month1.length == 1){
+			month1 = '0'+month1
+		}
+		day = date.getDate();
+		var day1 = day.toString();
+		if(day1.length == 1){
+			day1 = '0'+day1
+		}
+		hours = date.getHours();
+		var hours1 = hours.toString();
+		if(hours1.length == 1){
+			hours1 = '0'+hours1
+		}
+
+		minutes = date.getMinutes();
+		var minutes1 = minutes.toString();
+		if(minutes1.length == 1){
+			minutes1 = '0'+minutes1
+		}
+		seconds = date.getSeconds();
+		var seconds1 = seconds.toString();
+		if(seconds1.length == 1){
+			seconds1 = '0'+seconds1
+		}
+		vWeek_s = date.getDay();
+		document.getElementById("time1").innerHTML = year + "-" + month1 + "-" + day1 + " " + "\t" + vWeek[vWeek_s] + "\t" + hours1 + ":" + minutes1 +":" + seconds1 ;
+	};
+
+	//当前登录用户
+	/*$.ajax({
+        url: '/dsmanager/analysis/bigScreen/getLatelyLoginInfo',
+        type: 'post',
+        dataType: 'json',
+        success: function(res){
+            let html = '';
+            for(let i = 0; i < res.data.length; i++){
+                html += '<li>';
+                    html += '<div>'+res.data[i].name+'</div>';
+                    html += '<div>'+res.data[i].areaName+'</div>';
+                    html += '<div>'+res.data[i].actionTime+'</div>';
+                html += '</li>';
+            }
+            document.getElementById('currentLogin').innerHTML = html
+            $('.curlogin').clone().appendTo('#inner')
+            let count = 0
+            let len = res.data.length
+            setInterval(function(){
+                if(count < len){
+                    count = count + 1
+                    $('#inner').animate({'bottom':-count*3+'vh'}, 1000)
+                }else{
+                    $('#inner').animate({'bottom':-count*3+'vh'}, 1000, function(){
+                        count = 0
+                        $('#inner').css('bottom',0)
+                    })
+                }
+            }, 3000)
+        }
+    })*/
+
+	//网点视屏监控
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getVideoCount',
+		type: 'get',
+		dataType: 'json',
+		success: function(res){
+			//document.getElementById('area').innerHTML = res.data.ADDRESS
+			//document.getElementById('netOrg').innerHTML = res.data.LOCATIONNAME
+			document.getElementById('totalLogin').innerHTML = res.data.LOGINCOUNT+"人次"
+			document.getElementById('totalIssue').innerHTML = res.data.BUSINESSCOUNT+"人次"
+		}
+	})
+
+	//今日业务办理信息展示
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getTodayBusinessList',
+		type: 'get',
+		dataType: 'json',
+		success: function(res){
+			let html = '';
+			for(let i = 0; i < res.data.length; i++){
+				html += '<li>';
+				html += '<div>'+res.data[i].name+'</div>';
+				html += '<div>'+res.data[i].areaName+'</div>';
+				html += '<div>'+res.data[i].createTime.split(' ')[1]+'</div>';
+				html += '<div>'+res.data[i].type+'</div>';
+				html += '</li>';
+			}
+			document.getElementById('todayBusiness').innerHTML = html
+			$('.curBusiness').clone().appendTo('#innerBusiness')
+			let count = 0
+			let len = res.data.length - 4
+			setInterval(function(){
+				if(count < len-1){
+					count = count + 1
+					$('#innerBusiness').animate({'bottom':-count*5+'vh'}, 1000)
+				}else{
+					$('#innerBusiness').animate({'bottom':-count*5+'vh'}, 1000, function(){
+						count = 0
+						$('#innerBusiness').css('bottom',0)
+					})
+				}
+			}, 3000)
+		}
+	})
+
+
+	//近七天用户登录
+	/*$.ajax({
+        url: '/dsmanager/analysis/bigScreen/getLoginCountByTime',
+        type: 'post',
+        dataType: 'json',
+        success: function(res){
+            let times = res.data.times
+            let login_x = []
+            times.forEach(function(item,index){
+                login_x.push(item.substring(5,10))
+            })
+            let login_y = res.data.loginCount
+            paintLogin(login_x, login_y)
+        }
+    })
+    function paintLogin(xData, yData){
+        const chart1 = echarts.init(document.getElementById('loginNum'))
+          chart1.setOption({
+            tooltip: {
+                position: 'top',
+                backgroundColor : 'rgba(17, 40, 120, 0.7)',
+                textStyle : {
+                    fontSize: ttFs,
+                    color: '#EBB716',
+                    decoration: 'none',
+                },
+                formatter: function(params, ticket, callback){
+                    let txt = '日期：'+ new Date().getFullYear() + '-' + params.name + '<br/>' + params.seriesName + '：' + params.data + '人次'
+                    return txt;
+                }
+            },
+            title: {
+                text:'单位：人次',
+                  show: true,
+                  x:'3%',
+                  y:'5%',
+                  textStyle: {
+                    fontWeight: "normal",
+                    color: "#D6E1F5", //#6F7F98
+                    fontSize: ttFs
+                  }
+            },
+            grid: {
+                top: '25%',
+                left: '5%',
+                bottom: '0',
+                right: '5%',
+                containLabel: true
+            },
+            xAxis: {
+                data: xData,
+                axisLine: {
+                      lineStyle: {
+                        type: 'solid',
+                        color: '#153062', // 左边线的颜色
+                        width: '1'// 坐标线的宽度
+                    }
+                  },
+                  axisLabel: {
+                    interval: 0,
+                    textStyle: {
+                          color: '#D6E1F5', // 坐标值的具体颜色#6F7F98
+                          fontSize: lxFs
+                    }
+                  },
+                  axisTick: {
+                    show: false// 不显示坐标轴刻度线
+                  }
+            },
+            yAxis: {
+                axisLine: {
+                    show: false
+                  },
+                  axisLabel: {
+                    interval: 0,
+                    textStyle: {
+                          color: '#D6E1F5', // 坐标值的具体颜色
+                          fontSize: lxFs
+                    }
+                  },
+                  splitLine: {
+                    show: true,
+                    lineStyle: {
+                          color: '#153062',
+                          width: 1,
+                          type: 'solid'
+                    }
+                  },
+                  axisTick: {
+                    show: false// 不显示坐标轴刻度线
+                  },
+                  offset: 5
+            },
+            series: [
+                {
+                    name: '用户登录量',
+                    type: 'line',
+                    smooth: false,
+                    data: yData,
+                    itemStyle: {
+                          normal: {
+                            color: '#FFC300', // 改变折线点的颜色
+                            lineStyle: {
+                                  color: '#FFC300', // 改变折线颜色
+                                  width: 2// 线条粗细
+                            }
+                          }
+                    }
+                }
+            ]
+          })
+        //设置定时器，自动显示提示
+        let timer = null;
+        let count = 1;
+        let dataLength = xData.length;
+        let time = 4000;
+        timeFunc(chart1, timer, count, dataLength, time)
+    }*/
+	//近七天开机数
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getDeviceOpenTrend',
+		type: 'post',
+		dataType: 'json',
+		success: function(res){
+			let times = res.data.times
+			let login_x = []
+			times.forEach(function(item,index){
+				login_x.push(item.substring(5,10))
+			})
+			let login_y = res.data.deviceOpenCount
+			paintOpen(login_x, login_y)
+		}
+	})
+	function paintOpen(xData, yData){
+		const chart2 = echarts.init(document.getElementById('openNum'))
+		chart2.setOption({
+			tooltip: {
+				position: 'top',
+				backgroundColor : 'rgba(17, 40, 120, 0.7)',
+				textStyle : {
+					fontSize: ttFs,
+					color: '#EBB716',
+					decoration: 'none',
+				},
+				formatter: function(params, ticket, callback){
+					let txt = '日期：'+ new Date().getFullYear() + '-' + params.name + '<br/>' + params.seriesName + '：' + params.data + '台'
+					return txt;
+				}
+			},
+			title: {
+				text:'单位：台',
+				show: true,
+				x:'3%',
+				y:'5%',
+				textStyle: {
+					fontWeight: "normal",
+					color: "#D6E1F5", //#6F7F98
+					fontSize: ttFs
+				}
+			},
+			grid: {
+				top: '25%',
+				left: '5%',
+				bottom: '0',
+				right: '5%',
+				containLabel: true
+			},
+			xAxis: {
+				data: xData,
+				axisLine: {
+					lineStyle: {
+						type: 'solid',
+						color: '#153062', // 左边线的颜色
+						width: '1'// 坐标线的宽度
+					}
+				},
+				axisLabel: {
+					interval: 0,
+					textStyle: {
+						color: '#D6E1F5', // 坐标值的具体颜色
+						fontSize: lxFs
+					}
+				},
+				axisTick: {
+					show: false// 不显示坐标轴刻度线
+				}
+			},
+			yAxis: {
+				axisLine: {
+					show: false
+				},
+				axisLabel: {
+					interval: 0,
+					textStyle: {
+						color: '#D6E1F5', // 坐标值的具体颜色
+						fontSize: lxFs
+					}
+				},
+				splitLine: {
+					show: true,
+					lineStyle: {
+						color: '#153062',
+						width: 1,
+						type: 'solid'
+					}
+				},
+				axisTick: {
+					show: false// 不显示坐标轴刻度线
+				},
+				offset: 5
+			},
+			series: [
+				{
+					name: '设备开机量',
+					type: 'line',
+					smooth: false,
+					data: yData,
+					itemStyle: {
+						normal: {
+							color: '#10CEA2', // 改变折线点的颜色
+							lineStyle: {
+								color: '#10CEA2', // 改变折线颜色
+								width: 2// 线条粗细
+							}
+						}
+					}
+				}
+			]
+		})
+		//设置定时器，自动显示提示
+		let timer = null;
+		let count = 1;
+		let dataLength = xData.length;
+		let time = 4000;
+		timeFunc(chart2, timer, count, dataLength, time)
+	}
+	//中部统计数据
+	$.ajax({
+		//url: '/dsmanager/analysis/bigScreen/getDeviceAndUserCount',
+		url: '/dsmanager/analysis/bigScreen/getDeviceAndUserCount',
+		type: 'get',
+		dataType: 'json',
+		success: function(res){
+			/*document.getElementById('midTotal').innerHTML = res.data.USERAMOUNT
+            document.getElementById('midVerify').innerHTML = res.data.TREATMENTCOUNT
+            document.getElementById('midOpen').innerHTML = res.data.DEVICEOPENCOUNT
+            document.getElementById('midLogin').innerHTML = res.data.TADAYLOGINCOUNT*/
+			//累计待遇认证办理量
+			document.getElementById('midTotalIssue').innerHTML = res.data.TREATMENTCOUNT
+			document.getElementById('midChangePwd').innerHTML = res.data.CHANGEPASSWORDCOUNT
+			document.getElementById('midTotalOld').innerHTML = res.data.ACTIVECOUNT
+			document.getElementById('midLoss').innerHTML = res.data.LOSSCOUNT
+			document.getElementById('MIaddTody').innerHTML = '日新增'+res.data.TODAYTREATMENTCOUNT
+			document.getElementById('MCaddTody').innerHTML = '日新增'+res.data.TODAYCHANGEPASSWORDCOUNT
+			document.getElementById('MOaddTody').innerHTML = '日新增'+res.data.TODAYACTIVECOUNT
+			document.getElementById('MLaddTody').innerHTML = '日新增'+res.data.TODAYLOSSCOUNT
+		}
+	})
+	//近七天办理占比
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getServiceCountByType',
+		type: 'post',
+		dataType: 'json',
+		success: function(res){
+			let data = res.data
+			let ldata = []
+			let sdata = []
+			data.forEach(function(item, index){
+				ldata.push(item.type)
+				sdata.push({name: item.type, value: item.count})
+			})
+			paintRatio(ldata, sdata)
+		}
+	})
+	function paintRatio(lData,sData){
+		const chart3 = echarts.init(document.getElementById('handleNum'))
+		chart3.setOption({
+			tooltip: {
+				position: 'right',
+				backgroundColor : 'rgba(17, 40, 120, 0.7)',
+				textStyle : {
+					fontSize: ttFs,
+					color: '#EBB716',
+					decoration: 'none',
+				},
+				trigger: 'item',
+				// formatter: '{a} <br/>{b}: {c} ({d}%)'
+				formatter: '{b} <br/>办理量：{c}人次 <br/>占比：{d}%'
+			},
+			color: ['#1773FC','#10CFA4','#F8BD00','#FF0101','#E968A1','#6549F5','#00B7ED','#D0A970'],
+			legend: {
+				orient: 'vertical',
+				bottom: '8%',
+				left: '58%',
+				icon: 'circle',
+				itemWidth: 8,
+				itemHeight: 8,
+				data: lData,
+				textStyle:{
+					fontSize: otherFs,
+					color:'#8FA6C6',
+				}
+			},
+			series: [
+				{
+					name: '当前访问',
+					type: 'pie',
+					radius: ['45%', '75%'],
+					center: ['28%', '52%'],
+					avoidLabelOverlap: false,
+					label: {
+						show: false,
+						position: '20%'
+					},
+					emphasis: {
+						label: {
+							show: false,
+							fontSize: '14',
+							fontWeight: 'normal'
+						}
+					},
+					labelLine: {
+						show: false
+					},
+					data: sData
+				}
+			]
+		})
+		//设置定时器，自动显示提示
+		let timer = null;
+		let count = 1;
+		let dataLength = sData.length;
+		let time = 4000;
+		timeFunc(chart3, timer, count, dataLength, time)
+	}
+	//办理区域榜单
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getCityDeviceServiceCount',
+		type: 'post',
+		dataType: 'json',
+		success: function(res){
+			let data = res.data
+			let numArr = []
+			data.forEach(function(item,index){
+				numArr.push(parseInt(item.count))
+			})
+			let max = Math.max.apply(null, numArr)
+			//前三名数据
+			document.getElementById('dataList').innerHTML = htmlFunc(data, 0, 3, max)
+			//其他数据
+			document.getElementById('otherData').innerHTML = htmlFunc(data, 3, 14, max) + htmlFunc(data, 3, 14, max)
+			//设置滚动
+			let count = 0
+			let len = 11
+			setInterval(function(){
+				if(count < len){
+					count = count + 1
+					$('#otherData').animate({'top':count*-2.7+'vh'}, 1000)
+				}else{
+					$('#otherData').animate({'top':count*-2.7+'vh'}, 1000, function(){
+						count = 0
+						$('#otherData').css('top',0)
+					})
+				}
+			}, 3000)
+		}
+	})
+	function htmlFunc(data,start,len,max){
+		let html = ''
+		for(let i = start; i < len; i++){
+			let num = i + 1;
+			html += '<div class="item">'
+			html += '<div class="name"><span>'+ num + '</span>'+ data[i].areaName +'</div>'
+			html += '<div class="val">'
+			if(parseInt(data[i].count) == 0){
+				html += '<div class="inner" style="width:0px"></div>'
+			}else{
+				html += '<div class="inner" style="width:'+parseInt(data[i].count)/max*100+'%"></div>'
+			}
+			html += '</div>'
+			html += '<div class="num">'+data[i].count+'</div>'
+			html += '</div>'
+		}
+		return html
+	}
+	//近七天养老待遇认证
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getYLCertificationCount',
+		type: 'post',
+		dataType: 'json',
+		success: function(res){
+			let times = res.data.times
+			let login_x = []
+			times.forEach(function(item,index){
+				login_x.push(item.substring(5,10))
+			})
+			let login_y = res.data.yLServiceCount
+			paintTreat(login_x, login_y)
+		}
+	})
+	function paintTreat(xData, yData){
+		const chart5 = echarts.init(document.getElementById('dyAuth'))
+		chart5.setOption({
+			tooltip: {
+				position: 'top',
+				backgroundColor : 'rgba(17, 40, 120, 0.7)',
+				textStyle : {
+					fontSize: ttFs,
+					color: '#EBB716',
+					decoration: 'none',
+				},
+				formatter: function(params, ticket, callback){
+					let txt = '日期：'+ new Date().getFullYear() + '-' + params.name + '<br/>' + params.seriesName + '：' + params.data + '人次'
+					return txt;
+				}
+			},
+			title: {
+				text:'单位：人次',
+				show: true,
+				x:'3%',
+				y:'5%',
+				textStyle: {
+					fontWeight: "normal",
+					color: "#D6E1F5",
+					fontSize: ttFs
+				}
+			},
+			grid: {
+				top: '25%',
+				left: '5%',
+				bottom: '0',
+				right: '5%',
+				containLabel: true
+			},
+			xAxis: {
+				data: xData,
+				axisLine: {
+					lineStyle: {
+						type: 'solid',
+						color: '#153062', // 左边线的颜色
+						width: '1'// 坐标线的宽度
+					}
+				},
+				axisLabel: {
+					interval: 0,
+					textStyle: {
+						color: '#D6E1F5', // 坐标值的具体颜色
+						fontSize: lxFs
+					}
+				},
+				axisTick: {
+					show: false// 不显示坐标轴刻度线
+				}
+			},
+			yAxis: {
+				axisLine: {
+					show: false
+				},
+				axisLabel: {
+					interval: 0,
+					textStyle: {
+						color: '#D6E1F5', // 坐标值的具体颜色
+						fontSize: lxFs
+					}
+				},
+				splitLine: {
+					show: true,
+					lineStyle: {
+						color: '#153062',
+						width: 1,
+						type: 'solid'
+					}
+				},
+				axisTick: {
+					show: false// 不显示坐标轴刻度线
+				},
+				offset: 5
+			},
+			series: [
+				{
+					name: '待遇认证',
+					type: 'bar',
+					barWidth: '12',
+					barMaxWidth: '12',
+					barMinHeight: 1,
+					data: yData,
+					itemStyle: {
+						normal: {
+							barBorderRadius: [6, 6, 0, 0],
+							color: '#2772E5'
+						}
+					}
+				}
+			]
+		})
+		//设置定时器，自动显示提示
+		let timer = null;
+		let count = 1;
+		let dataLength = xData.length;
+		let time = 4000;
+		timeFunc(chart5, timer, count, dataLength, time)
+	}
+	//中间部分：广西地图
+	var geoCoordMap = {
+		// '南宁市':[108.475754,23.121275],
+		// '柳州市':[109.43385,24.833278],
+		// '桂林市':[110.386774,25.242484],
+		// '梧州市':[111.078044,23.487784],
+		// '北海市':[109.335155,21.759659],
+		// '防城港市':[108.083417,21.913154],
+		// '钦州市':[108.864604,22.272919],
+		// '贵港市':[110.017589,23.406014],
+		// '玉林市':[110.193052,22.457963],
+		// '百色市':[106.606766,23.871445],
+		// '贺州市':[111.482148,24.40866],
+		// '河池市':[108.094378,24.702851],
+		// '来宾市':[109.248727,23.757869],
+		// '崇左市':[107.377269,22.584988]
+		'西昌市':[102.258758,27.885786],
+		'木里藏族自治县':[101.280184,27.926859],
+		'盐源县':[101.508909,27.423415],
+		'德昌县':[102.178845,27.403827],
+		'会理县':[102.249548,26.658702],
+		'会东县':[102.578985,26.630713],
+		'宁南县':[102.757374,27.065205],
+		'普格县':[102.541082,27.376828],
+		'布拖县':[102.808801,27.709062],
+		'金阳县':[103.248704,27.695916],
+		'昭觉县':[102.843991,28.010554],
+		'喜德县':[102.412342,28.305486],
+		'冕宁县':[102.170046,28.550844],
+		'越西县':[102.508875,28.639632],
+		'甘洛县':[102.775924,28.977094],
+		'美姑县':[103.132007,28.327946],
+		'雷波县':[103.571584,28.262946]
+	}
+	function convertData(data) {
+		// console.log(JSON.stringify(data))
+		var res = [];
+		for (var i = 0; i < data.length; i++) {
+			var geoCoord = geoCoordMap[data[i].name];
+			if (geoCoord) {
+				res.push({
+					name: data[i].name,
+					value: geoCoord.concat(data[i].value),
+					value1: data[i].value1,
+					value2: data[i].value2
+				});
+			}
+		}
+		return res;
+	};
+
+
+
+	//地图各模块数据
+	$.ajax({
+		url: '/dsmanager/analysis/bigScreen/getMapData',
+		type: 'post',
+		dataType: 'json',
+		success: function(res){
+			let pdata = []
+			let totalArr = []
+			let data = res.data
+			data.forEach(function(item,index){
+				totalArr.push(parseInt(item.deviceTotal))
+				pdata.push({
+					name: item.areaName,
+					// value: [item.deviceTotal, item.deviceOpenTotal, item.todayLoginUserTotal]
+					value: item.deviceTotal,
+					value1: item.deviceOpenTotal,
+					value2: item.todayLoginUserTotal
+				})
+			})
+			let maxNum = Math.max.apply(null, totalArr)
+			paintMap(pdata, maxNum)
+		}
+	})
+	function paintMap(pdata, maxNum){
+		const chart = echarts.init(document.getElementById('provinceMap'));
+		let option0 = {
+			textStyle: {
+				fontSize:15,
+				fontWeight: 'bold'
+			},
+
+			tooltip : {
+				trigger: 'item',
+				position: 'top',
+				backgroundColor : 'rgba(17, 40, 120, 0.7)',
+				formatter:function(params){
+					return '<div style="color:#FFC300;font-weight: bolder; font-size: 17px">'+params.data.name+'</div>'+
+							'<div style="font-weight: bolder; font-size: 17px">终端数量：<span style="color:#FFC300">'+params.data.value[2]+'台</span></div>'+
+							/*  '<div style="font-weight: bolder; font-size: 17px">当前开机数量：<span style="color:#FFC300">'+params.data.value1+'台</span></div>'+*/
+							'<div style="font-weight: bolder;font-size: 17px">今日用户登录量：<span style="color:#FFC300">'+params.data.value2+'人次</span></div>'
+				}
+			},
+			dataRange: {
+				min: 0,
+				max: maxNum,
+				x: '90%',
+				y: 'bottom',
+				itemWidth: 15,
+				itemHeight: 80,
+				color:['#3569CE','#02DCF7'],
+				text:['高','低'],
+				calculable: false, //显示滑块
+				splitNumber:0,
+				textStyle: {
+					fontWeight: "normal",
+					color: "#8D96B5",
+					fontSize: otherFs
+				},
+				seriesIndex: 0 // 仅使第一个series生效
+			},
+			geo: {
+				// map: '广西',
+				map: '凉山彝族自治州',
+				roam: false, //鼠标缩放地图
+				label: {
+					normal:{
+						show: false,
+						position: 'top',
+						color: '#fff',
+					},
+					emphasis: {
+						show: false,
+						color: '#fff'
+					},
+				},
+				itemStyle: {
+					normal: {
+						areaColor: '#3268CD',
+						borderColor: '#08117A'
+					},
+					emphasis: {
+						areaColor: '#FFC300',
+					},
+				},
+				zoom: 1.2,
+			},
+			series: [
+				{
+					// map: '广西',
+					map: '凉山彝族自治州',
+					type: 'map',
+					roam: false, //缩放
+					data: convertData(pdata),
+					label: {
+						show: false,
+						normal:{
+							show: false,
+							position: 'top',
+							color: '#fff',
+						},
+						emphasis: {
+							show: false,
+							color: '#fff'
+						},
+					},
+					itemStyle: {
+						normal: {
+							areaColor: '#3268CD',
+							borderColor: '#08117A'
+						},
+						emphasis: {
+							//areaColor: '#FFC300',
+							areaColor: '#8A2BE2',
+						},
+
+					},
+					zoom: 1.2,
+					zlevel: 10
+				},
+				{
+					name: '分布情况',
+					type: 'scatter',
+					coordinateSystem: 'geo',
+					data: convertData(pdata),
+					symbol:'circle',
+					symbolSize: 6,
+					hoverAnimation: true,
+					label: {
+						normal: {
+							formatter: '{b}',
+							color: '#fff',
+							position: 'bottom',
+							show: true
+						},
+						emphasis: {
+							formatter: '{b}',
+							color: '#fff',
+							position: 'bottom',
+							show: true
+						},
+					},
+					itemStyle: {
+						color: '#fff',
+					},
+					zlevel: 20
+				}
+			],
+			animation: true, // 关闭动画后scatter点悬浮样式会失效
+			selectedMode: 'single',
+		}
+		chart.setOption(option0);
+		//设置定时器，自动显示地图上提示
+		let timer = null;
+		let count = 1;
+		let dataLength = 14;
+		let time = 5000;
+		timeFunc(chart, timer, count, dataLength, time)
+	}
+	//设置定时器，让提示自动显示
+	function timeFunc(chart, timer, count, dataLength, time){
+		window.addEventListener('resize', function(){
+			chart.resize()
+		})
+		//默认进入页面立即显示第一个提示
+		chart.dispatchAction({
+			type: 'highlight',
+			seriesIndex: 0,
+			dataIndex: 0
+		});
+		chart.dispatchAction({
+			type: 'showTip',
+			seriesIndex: 0,
+			dataIndex: 0
+		});
+		timer = setInterval(function(){
+			chart.dispatchAction({
+				type: 'downplay',
+				seriesIndex: 0,
+			});
+			chart.dispatchAction({
+				type: 'highlight',
+				seriesIndex: 0,
+				dataIndex: (count) % dataLength
+			});
+			chart.dispatchAction({
+				type: 'showTip',
+				seriesIndex: 0,
+				dataIndex: (count) % dataLength
+			});
+			count++;
+		}, time)
+		chart.on('mouseover', function(params) {
+			clearInterval(timer);
+			chart.dispatchAction({
+				type: 'downplay',
+				seriesIndex: 0
+			});
+			chart.dispatchAction({
+				type: 'highlight',
+				seriesIndex: 0,
+				dataIndex: params.dataIndex
+			});
+			chart.dispatchAction({
+				type: 'showTip',
+				seriesIndex: 0,
+				dataIndex: params.dataIndex,
+			});
+		});
+		chart.on('mouseout', function(params) {
+			timer && clearInterval(timer);
+			timer = setInterval(function() {
+				chart.dispatchAction({
+					type: 'downplay',
+					seriesIndex: 0,
+				});
+				chart.dispatchAction({
+					type: 'highlight',
+					seriesIndex: 0,
+					dataIndex: (count) % dataLength
+				});
+				chart.dispatchAction({
+					type: 'showTip',
+					seriesIndex: 0,
+					dataIndex: (count) % dataLength
+				});
+				count++;
+			}, time);
+		});
+	}
+</script>
+</body>
+</html>
